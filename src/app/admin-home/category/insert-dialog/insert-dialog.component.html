@@ -1,0 +1,36 @@
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+        <mat-card-title>Add Category </mat-card-title>
+        <span class="toolbar-spacer"></span>
+        <mat-icon (click)="onCancelClick()">cancel</mat-icon>
+    </mat-toolbar>
+</mat-card-header>
+
+<mat-card-content>
+    <div class="container">
+        <form [formGroup]="_addForm" (submit)="onSubmit()">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><b>Name Category</b></label>
+                        <input type="text" formControlName="NameCategory" class="form-control"
+                        #tip1="ngbTooltip"
+                        triggers="manual"
+                        [autoClose]="false"
+                        [placement]="'bottom'" 
+                        [ngbTooltip]="'Ii is not Emtry!'"
+                        (focusout)= "onLostFocus()" >
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>Imamge Category</b> </label>
+                        <angular-file-uploader [config]="afuConfig"></angular-file-uploader>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <button class="btn btn-primary" [disabled]= "isDisable" (click)="ClickSave()"> Save </button>
+            </div>
+
+        </form>
+    </div>
+</mat-card-content>

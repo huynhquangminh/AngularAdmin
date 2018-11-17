@@ -1,0 +1,60 @@
+<!-- <mat-card-header>
+  <mat-toolbar class="toolbar">
+      <mat-card-title>Add Role </mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onCancelClick()">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header> -->
+
+<!-- <mat-card-content>
+  <div class="container">
+      <form [formGroup]="_addForm" (submit)="onSubmit()">
+          <div class="form-group">
+              <div class="row">
+                  <div class="col-md-6">
+                      <label><b>Name Role</b></label>
+                      <input type="text" formControlName="NameRole" class="form-control"
+                      #tip1="ngbTooltip"
+                      triggers="manual"
+                      [autoClose]="false"
+                      [placement]="'bottom'" 
+                      [ngbTooltip]="'Ii is not Emtry!'"
+                      (focusout)= "onLostFocus()" >
+                  </div>
+              </div>
+          </div>
+          <mat-dialog-actions align="end">
+            <button mat-button class="btn btn-primary" [disabled]= "isDisable" (click)="ClickSave()"> Save </button>
+          </mat-dialog-actions>
+          <div class="card-footer text-muted">
+              <button mat-button class="btn btn-primary" [disabled]= "isDisable" (click)="ClickSave()"> Save </button>
+          </div>
+      </form>
+  </div>
+</mat-card-content> -->
+
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+        <mat-card-title>Add Role </mat-card-title>
+        <span class="toolbar-spacer"></span>
+        <mat-icon (click)="onCancelClick()">cancel</mat-icon>
+    </mat-toolbar>
+</mat-card-header>
+<mat-dialog-content style="overflow:visible">
+    <div class="container">
+        <form [formGroup]="_addForm" (submit)="onSubmit()">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><b>Name Role</b></label>
+                        <input type="text" formControlName="NameRole" class="form-control" #tip1="ngbTooltip" triggers="manual"
+                            [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button class="btn btn-primary" [disabled]="isDisable" (click)="ClickSave()"> Save </button>
+</mat-dialog-actions>

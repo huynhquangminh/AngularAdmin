@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/css/font-face.scss';
+@import 'assets/css/theme.scss';
+@import 'assets/vendor/font-awesome-4.7/css/font-awesome.min.scss';
+@import 'assets/vendor/font-awesome-5/css/fontawesome-all.min.scss';
+@import 'assets/vendor/mdi-font/css/material-design-iconic-font.min.scss';
+@import 'assets/vendor/bootstrap-4.1/bootstrap.min.scss';
+@import 'assets/vendor/animsition/animsition.min.scss';
+@import 'assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.scss';
+@import 'assets/vendor/wow/animate.scss';
+@import 'assets/vendor/css-hamburgers/hamburgers.min.scss';
+@import 'assets/vendor/slick/slick.scss';
+@import 'assets/vendor/select2/select2.min.scss';
+@import 'assets/vendor/perfect-scrollbar/perfect-scrollbar.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.toolbar{
+    background-color:  #4B0082;
+    border-radius: 5px;
+    color: white;
+
+}
+
+.toolbar-spacer{
+    flex: 1 1 auto;
+}

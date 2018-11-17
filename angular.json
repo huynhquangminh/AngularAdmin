@@ -23,9 +23,25 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "../AdminApp/node_modules/ngx-select-dropdown/dist/assets/style.scss"          
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendor/jquery-3.2.1.min.js",
+              "src/assets/vendor/bootstrap-4.1/popper.min.js",
+              "src/assets/vendor/bootstrap-4.1/bootstrap.min.js",
+              "src/assets/vendor/slick/slick.min.js",
+              "src/assets/vendor/wow/wow.min.js",
+              "src/assets/vendor/animsition/animsition.min.js",
+              "src/assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js",
+              "src/assets/vendor/counter-up/jquery.waypoints.min.js",
+              "src/assets/vendor/counter-up/jquery.counterup.min.js",
+              "src/assets/vendor/circle-progress/circle-progress.min.js",
+              "src/assets/vendor/perfect-scrollbar/perfect-scrollbar.js",
+              "src/assets/vendor/chartjs/Chart.bundle.min.js",
+              "src/assets/vendor/select2/select2.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
