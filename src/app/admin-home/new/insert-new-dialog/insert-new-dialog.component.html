@@ -1,0 +1,51 @@
+<mat-card-header>
+  <mat-toolbar class="toolbar">
+    <mat-card-title>Add News </mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon (click)="onCancelClick()">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header>
+<mat-dialog-content style="overflow:visible">
+  <div class="container">
+    <form class="md-form" [formGroup]="_addForm" (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <label><b>Name News</b></label>
+            <input type="text" formControlName="NameNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+          </div>
+          <div class="col-md-6">
+            <label><b>User Create</b></label>
+            <input type="text" formControlName="UserCreate" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+          </div>
+          <div class="col-md-6">
+            <label><b>Date</b></label>
+            <input type="text" formControlName="Date" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+          </div>
+          <div class="col-md-6">
+            <label><b>Image News</b></label>
+            <input type="file" (change)= "onSelectedFile($event)">
+            <input type="text" formControlName="ImageNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+          </div>
+          <div class="col-md-6">
+            <label><b>View Max</b></label>
+            <input type="number" formControlName="ViewMax" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+          </div>
+          <div class="col-md-6">
+            <label><b>Description News</b></label>
+            <input type="text" formControlName="DescriptionNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button class="btn btn-primary" [disabled]="isDisable" (click)="ClickSave()"> Save </button>
+</mat-dialog-actions>

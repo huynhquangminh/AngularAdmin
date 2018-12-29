@@ -5,21 +5,24 @@ import { AdminHomeRoutingModule } from './admin-home.routing';
 import { CategoryComponent } from './category/category.component';
 import { RoleComponent } from './role/role.component';
 import { CustomerComponent } from './customer/customer.component';
-import { InsertCustomerDialogComponent } from './customer/insert-customer-dialog/insert-customer-dialog.component';
-import { UpdateCustomerDialogComponent } from './customer/update-customer-dialog/update-customer-dialog.component';
+import { MatTableModule , MatSortModule, MatPaginatorModule } from '@angular/material';
+import { NewComponent } from './new/new.component';
+import { InsertNewDialogComponent } from './new/insert-new-dialog/insert-new-dialog.component';
+import { UpdateNewDialogComponent } from './new/update-new-dialog/update-new-dialog.component';
 
 
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminHomeRoutingModule,
+    AdminHomeRoutingModule
   ],
   declarations: [
     IndexComponent,
     CategoryComponent,
     RoleComponent,
     CustomerComponent,
+    NewComponent,
   ],
 })
 export class AdminHomeModule { }

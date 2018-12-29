@@ -1,26 +1,19 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { ApiService } from '../../service/api-service';
-import { GETROLE_URL, DELETEROLE_URL } from './config';
+import { InsertNewDialogComponent } from './insert-new-dialog/insert-new-dialog.component';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { InsertRoleDialogComponent } from './insert-dialog/insert-dialog.component';
-import { UpdateRoleDialogComponent } from './update-dialog/update-dialog.component';
-import { DeleteRoleRequest } from '../../model/deleteRoleRequest';
+import { ApiService } from '../../service/api-service';
+import { GETNEWS_URL, DELETENEWS_URL } from './config';
+import { UpdateNewDialogComponent } from './update-new-dialog/update-new-dialog.component';
 import { MessageComfrimComponent } from '../message/message.component';
 
-
 @Component({
-  selector: 'app-role',
-  templateUrl: './role.component.html',
-  styleUrls: ['./role.component.css']
+  selector: 'app-new',
+  templateUrl: './new.component.html',
+  styleUrls: ['./new.component.css']
 })
+export class NewComponent implements OnInit {
 
-
-
-export class RoleComponent implements OnInit {
-
-  private listRoles: any = [];
-  deleteRoleRequest = new DeleteRoleRequest();
+  listNews: any [];
   dialogRef: any;
   constructor(
     public dialog: MatDialog,
@@ -28,29 +21,29 @@ export class RoleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._apiservice.CallAllService(GETROLE_URL).subscribe(data => {
+    this._apiservice.CallAllService(GETNEWS_URL).subscribe(data => {
       if (data) {
         if (data.Success === false) {
           alert('Your Request Is Unsuccessful');
         } else {
-          this.listRoles = data.listRoles;
+          this.listNews = data.listNewsAll;
         }
       }
     });
   }
 
+
   openDialogInsert() {
-    const dialogRef = this.dialog.open(InsertRoleDialogComponent, {
+    const dialogRef = this.dialog.open(InsertNewDialogComponent, {
       disableClose: true,
-      height: '260px',
-      width: '400px'
+      height: '430px',
+      width: '550px'
     });
     this.reloadPage(dialogRef);
   }
 
   openDialogUpdate($event) {
-
-    const dialogRef = this.dialog.open(UpdateRoleDialogComponent, {
+    const dialogRef = this.dialog.open(UpdateNewDialogComponent, {
       height: '260px',
       width: '600px',
       data: {
@@ -61,6 +54,7 @@ export class RoleComponent implements OnInit {
 
     this.reloadPage(dialogRef);
   }
+
   reloadPage(dialogRef: any) {
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
@@ -73,8 +67,8 @@ export class RoleComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
-        this.deleteRoleRequest.ID = $event;
-        this._apiservice.CallByResquestService(DELETEROLE_URL, this.deleteRoleRequest).subscribe(data => {
+        // this.deleteRoleRequest.ID = $event;
+        this._apiservice.CallByResquestService(DELETENEWS_URL, null).subscribe(data => {
           if (data) {
             if (data === false) {
               alert('Your Request Is Unsuccessful');

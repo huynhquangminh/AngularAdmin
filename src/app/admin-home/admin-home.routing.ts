@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { CategoryComponent } from './category/category.component';
 import { CustomerComponent } from './customer/customer.component';
+import { NewComponent } from './new/new.component';
 
 const homeRoutes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -13,7 +14,7 @@ const homeRoutes: Routes = [
     { path: 'category', component: CategoryComponent },
     { path: 'role', component: RoleComponent },
     { path: 'customer', component: CustomerComponent },
-    // { path: 'news', component: TintucComponent },
+    { path: 'news', component: NewComponent },
     // { path: 'category/product/:key', component: CategoryComponent },
     // { path: 'news-detail/:id', component: TintucDetailComponent },
     // { path: 'introduce', component: GioithieuComponent },

@@ -21,7 +21,10 @@ import { UpdateCustomerDialogComponent } from './admin-home/customer/update-cust
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import {MatSelectModule} from '@angular/material/select';
 import { MessageComfrimComponent } from './admin-home/message/message.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material';
+import { UpdateNewDialogComponent } from './admin-home/new/update-new-dialog/update-new-dialog.component';
+import { InsertNewDialogComponent } from './admin-home/new/insert-new-dialog/insert-new-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     UpdateRoleDialogComponent,
     InsertCustomerDialogComponent,
     UpdateCustomerDialogComponent,
-    MessageComfrimComponent
+    MessageComfrimComponent,
+    UpdateNewDialogComponent,
+    InsertNewDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -60,7 +65,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     UpdateRoleDialogComponent,
     InsertCustomerDialogComponent,
     UpdateCustomerDialogComponent,
-    MessageComfrimComponent
+    MessageComfrimComponent,
+    UpdateNewDialogComponent,
+    InsertNewDialogComponent
   ]
 })
 export class AppModule { }

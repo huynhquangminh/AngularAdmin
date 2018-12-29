@@ -1,81 +1,58 @@
 <mat-card-header>
-  <mat-toolbar class="toolbar">
-      <mat-card-title>Update Customer </mat-card-title>
-      <span class="toolbar-spacer"></span>
-      <mat-icon (click)="onCancelClick()">cancel</mat-icon>
-  </mat-toolbar>
+    <mat-toolbar class="toolbar">
+        <mat-card-title>Update Customer </mat-card-title>
+        <span class="toolbar-spacer"></span>
+        <mat-icon (click)="onCancelClick()">cancel</mat-icon>
+    </mat-toolbar>
 </mat-card-header>
 <mat-dialog-content style="overflow:visible">
-  <div class="container">
-      <form [formGroup]="_addForm" (submit)="onSubmit()">
-          <div class="form-group">
-              <div class="row">
-                  <div class="col-md-6">
-                      <label><b>Telephone</b></label>
-                      <input type="text" 
-                      formControlName="Telephone" 
-                      class="form-control" 
-                      #Telephone="ngbTooltip"
-                      triggers="manual" 
-                      [autoClose]="false" 
-                      [placement]="'bottom'" 
-                      [ngbTooltip]="'Ii is not Emtry!'"
-                      (focusout)="onLostFocus('Telephone')">
-                  </div>
-                  <div class="col-md-6">
-                      <label><b>User Name</b></label>
-                      <input type="text" 
-                      formControlName="UserName" 
-                      class="form-control" 
-                      #UserName="ngbTooltip"
-                      triggers="manual" 
-                      [autoClose]="false" 
-                      [placement]="'bottom'" 
-                      [ngbTooltip]="'Ii is not Emtry!'"
-                      (focusout)="onLostFocus('UserName')">
-                  </div>
-                  <div class="col-md-6">
-                      <label><b>PassWord</b></label>
-                      <input type="password" 
-                      formControlName="PassWord" 
-                      class="form-control" 
-                      #PassWord="ngbTooltip"
-                      triggers="manual" 
-                      [attr.disabled]= "true"
-                      [autoClose]="false" 
-                      [placement]="'bottom'" 
-                      [ngbTooltip]="'Ii is not Emtry!'"
-                      (focusout)="onLostFocus('PassWord')">
-                  </div>
-                  <div class="col-md-6">
-                      <label><b>Name Customer</b></label>
-                      <input type="text" 
-                      formControlName="NameCustomer" 
-                      class="form-control" 
-                      #NameCustomer="ngbTooltip"
-                      triggers="manual" 
-                      [autoClose]="false" 
-                      [placement]="'bottom'" 
-                      [ngbTooltip]="'Ii is not Emtry!'"
-                      (focusout)="onLostFocus('NameCustomer')">
-                  </div>
-                  <div class="col-md-8" style="margin-top: 20px">
-                      <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                              <label><p>Role</p></label>
-                          </div>
-                          <mat-form-field>
+    <div class="container">
+        <form [formGroup]="_addForm" (submit)="onSubmit()">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><b>Telephone</b></label>
+                        <input type="text" formControlName="Telephone" class="form-control" #Telephone="ngbTooltip"
+                            triggers="manual" [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'"
+                            (focusout)="onLostFocus('Telephone')">
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>User Name</b></label>
+                        <input type="text" formControlName="UserName" class="form-control" #UserName="ngbTooltip"
+                            triggers="manual" [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'"
+                            (focusout)="onLostFocus('UserName')">
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>PassWord</b></label>
+                        <input type="password" formControlName="PassWord" class="form-control" #PassWord="ngbTooltip"
+                            triggers="manual" [attr.disabled]="true" [autoClose]="false" [placement]="'bottom'"
+                            [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('PassWord')">
+                    </div>
+                    <div class="col-md-6">
+                        <label><b>Name Customer</b></label>
+                        <input type="text" formControlName="NameCustomer" class="form-control" #NameCustomer="ngbTooltip"
+                            triggers="manual" [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'"
+                            (focusout)="onLostFocus('NameCustomer')">
+                    </div>
+                    <div class="col-md-8" style="margin-top: 20px">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label>
+                                    <p>Role</p>
+                                </label>
+                            </div>
+                            <mat-form-field>
                                 <mat-select [(value)]="roleSelected">
-                                  <mat-option *ngFor="let itemRole of listRoles" value="{{itemRole.ID}}">{{itemRole.RoleName}}</mat-option>
+                                    <mat-option *ngFor="let itemRole of listRoles" value="{{itemRole.ID}}">{{itemRole.RoleName}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </form>
-  </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button class="btn btn-primary" [disabled]="isDisable" (click)="ClickSave()"> Save </button>
+    <button mat-button class="btn btn-primary" [disabled]="isDisable" (click)="ClickSave()"> Save </button>
 </mat-dialog-actions>
