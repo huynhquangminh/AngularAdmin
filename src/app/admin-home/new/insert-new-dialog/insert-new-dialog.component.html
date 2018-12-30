@@ -13,33 +13,34 @@
           <div class="col-md-6">
             <label><b>Name News</b></label>
             <input type="text" formControlName="NameNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
-              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('NameNews')">
           </div>
           <div class="col-md-6">
             <label><b>User Create</b></label>
-            <input type="text" formControlName="UserCreate" class="form-control" #tip1="ngbTooltip" triggers="manual"
-              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+            <input type="text" formControlName="UserCreate" class="form-control" #tip2="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('UserCreate')">
           </div>
           <div class="col-md-6">
             <label><b>Date</b></label>
-            <input type="text" formControlName="Date" class="form-control" #tip1="ngbTooltip" triggers="manual"
-              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+           
+            <input type="date" formControlName="Date" class="form-control" #tip3="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('Date')">
           </div>
           <div class="col-md-6">
             <label><b>Image News</b></label>
             <input type="file" (change)= "onSelectedFile($event)">
-            <input type="text" formControlName="ImageNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
-              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+            <!-- <input type="text" formControlName="ImageNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()"> -->
           </div>
           <div class="col-md-6">
             <label><b>View Max</b></label>
-            <input type="number" formControlName="ViewMax" class="form-control" #tip1="ngbTooltip" triggers="manual"
-              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+            <input type="number" formControlName="ViewMax" class="form-control" #tip4="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('ViewMax')">
           </div>
           <div class="col-md-6">
             <label><b>Description News</b></label>
-            <input type="text" formControlName="DescriptionNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
-              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()">
+            <input type="text" formControlName="DescriptionNews" class="form-control" #tip5="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('DescriptionNews')">
           </div>
         </div>
       </div>
