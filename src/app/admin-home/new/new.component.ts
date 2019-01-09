@@ -36,7 +36,7 @@ export class NewComponent implements OnInit {
   openDialogInsert() {
     const dialogRef = this.dialog.open(InsertNewDialogComponent, {
       disableClose: true,
-      height: '430px',
+      height: '530px',
       width: '550px'
     });
     this.reloadPage(dialogRef);

@@ -20,7 +20,8 @@ export class CustomerComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public _apiservice: ApiService,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this._apiservice.CallAllService(GETLISTCUSTOMER_URL).subscribe(data => {
