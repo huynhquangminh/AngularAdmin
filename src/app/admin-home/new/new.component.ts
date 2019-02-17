@@ -5,6 +5,7 @@ import { ApiService } from '../../service/api-service';
 import { GETNEWS_URL, DELETENEWS_URL } from './config';
 import { UpdateNewDialogComponent } from './update-new-dialog/update-new-dialog.component';
 import { MessageComfrimComponent } from '../message/message.component';
+import { DeleteNewsRequest } from 'src/app/model/deleteNewsRequest';
 
 @Component({
   selector: 'app-new',
@@ -15,6 +16,7 @@ export class NewComponent implements OnInit {
 
   listNews: any [];
   dialogRef: any;
+  deleteNewsRequest = new DeleteNewsRequest ();
   constructor(
     public dialog: MatDialog,
     public _apiservice: ApiService,
@@ -67,8 +69,8 @@ export class NewComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
-        // this.deleteRoleRequest.ID = $event;
-        this._apiservice.CallByResquestService(DELETENEWS_URL, null).subscribe(data => {
+        this.deleteNewsRequest.id = $event;
+        this._apiservice.CallByResquestService(DELETENEWS_URL, this.deleteNewsRequest).subscribe(data => {
           if (data) {
             if (data === false) {
               alert('Your Request Is Unsuccessful');

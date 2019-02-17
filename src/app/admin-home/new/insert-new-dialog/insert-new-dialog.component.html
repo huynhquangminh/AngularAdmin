@@ -28,21 +28,24 @@
           </div>
           <div class="col-md-6">
             <label><b>Image News</b></label>
-            <input type="file" accept="image/*" (change)= "onSelectedFile($event)">
-            <!-- <input type="text" formControlName="ImageNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
-              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus()"> -->
+            <input type="file" accept="image/*" (change)= "onSelectedFile($event)"> <br>
           </div>
           <div class="col-md-6">
             <label><b>View Max</b></label>
             <input type="number" formControlName="ViewMax" class="form-control" #tip4="ngbTooltip" triggers="manual"
               [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('ViewMax')">
           </div>
+          <div class="col-md-6">
+            <img [src]="imgsrc" height="100" width="200">
+          </div>
           <div class="col-md-6"></div>
           <div class="col-md-12">
             <label><b>Description News</b></label>
+            <a style="margin-left: 40px" target="_blank" href="https://html-online.com/editor/"> <h5><i>Move to Editor Onlie</i></h5></a>
             <textarea 
               rows="5" 
               cols="200" 
+              placeholder="you copy source in editor online ... vd : <p>hello work</p> "
               formControlName="DescriptionNews" 
               class="form-control" 
               #tip5="ngbTooltip" 

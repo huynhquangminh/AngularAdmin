@@ -19,11 +19,16 @@
                         [autoClose]="false"
                         [placement]="'bottom'" 
                         [ngbTooltip]="'Ii is not Emtry!'"
-                        (focusout)= "onLostFocus()" >
+                        (focusout)= "onLostFocus('NameCategory')" >
                     </div>
                     <div class="col-md-6">
-                        <label><b>Imamge Category</b> </label>
-                        <angular-file-uploader [config]="afuConfig"></angular-file-uploader>
+                        <label><b>Image News</b></label>
+                        <input type="file" accept="image/*" (change)= "onSelectedFile($event)"> <br>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <img [src]="imgsrc" height="100" width="200">
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import { ApiService } from '../../../service/api-service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Add_NewsRequest } from 'src/app/model/insertNewRequest';
 import { INSERTNEWS_URL } from '../config';
-import {formatDate} from '@angular/common';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-insert-new-dialog',
@@ -18,6 +18,9 @@ export class InsertNewDialogComponent implements OnInit {
   tooltip: NgbTooltip;
   nameFile: string;
   requestData = new Add_NewsRequest();
+  imgsrc: any = '';
+  fileList: FileList;
+  file: File;
   @ViewChild('tip1') public tooltip1: NgbTooltip;
   @ViewChild('tip2') public tooltip2: NgbTooltip;
   @ViewChild('tip3') public tooltip3: NgbTooltip;
@@ -33,7 +36,6 @@ export class InsertNewDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const a = formatDate(new Date(), 'yyyy-MM-dd', 'en');
     this._addForm = this._formBuilder.group({
       NameNews: ['', [Validators.required]],
       UserCreate: [0, [Validators.required]],
@@ -47,15 +49,44 @@ export class InsertNewDialogComponent implements OnInit {
   }
 
   onSelectedFile(event) {
-    this.nameFile = event.target.files[0].name;
+    this.fileList = event.target.files;
+    if (event.target.files.length > 0) {
+      this.nameFile = event.target.files[0].name;
+      this.file = event.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      // tslint:disable-next-line:no-shadowed-variable
+      reader.onload = (event) => {
+        this.imgsrc = (<FileReader>event.target).result;
+      };
+    } else {
+      this.imgsrc = '';
+    }
+    this.onLostFocus('NameCategory');
+
+     const formData: FormData = new FormData();
+      formData.append('uploadFile', this.file, this.file.name);
+        this._apiService.postFile(this.file).subscribe(data => {
+          console.log('done');
+        });
+
+    // if ( this.fileList.length > 0) {
+    //   const file1: File = this.fileList[0];
+    //   const formData: FormData = new FormData();
+    //   formData.append('uploadFile', file1, file1.name);
+    //   this._apiService.postFile(file1).subscribe(data => {
+    //     console.log('done');
+    //   });
+    // }
   }
+
   CheckValidate(tooltip: NgbTooltip, namecontrol: string) {
     if (!this._addForm.get(namecontrol).valid) {
       tooltip.open('Is is not emtry!');
     } else {
       tooltip.close();
     }
-    if (!this._addForm.valid) {
+    if (!this._addForm.valid || this.imgsrc === '') {
       this.isDisable = true;
     } else {
       this.isDisable = false;
@@ -75,7 +106,7 @@ export class InsertNewDialogComponent implements OnInit {
   ClickSave() {
     this.requestData = {
       NameNews: this._addForm.get('NameNews').value,
-      IDCreater:  this._addForm.get('UserCreate').value,
+      IDCreater: this._addForm.get('UserCreate').value,
       Date: this._addForm.get('Date').value,
       ImageNews: this.nameFile,
       ImageNewDetail: 'xxx',
@@ -95,4 +126,10 @@ export class InsertNewDialogComponent implements OnInit {
   onCancelClick() {
     this.dialogref.close();
   }
+
+
+
+
+
+
 }

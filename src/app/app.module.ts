@@ -24,6 +24,7 @@ import { MessageComfrimComponent } from './admin-home/message/message.component'
 import {MatDialogModule} from '@angular/material';
 import { UpdateNewDialogComponent } from './admin-home/new/update-new-dialog/update-new-dialog.component';
 import { InsertNewDialogComponent } from './admin-home/new/insert-new-dialog/insert-new-dialog.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { InsertNewDialogComponent } from './admin-home/new/insert-new-dialog/ins
   imports: [
     AppRoutingModule,
     HttpModule,
+    HttpClientModule,
     RouterModule,
     FormsModule,
     BrowserModule,
