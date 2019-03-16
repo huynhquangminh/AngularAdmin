@@ -16,35 +16,31 @@
           <i class="zmdi zmdi-filter-list"></i>filters</button>
       </div>
       <div class="table-data__tool-right">
-        <button class="au-btn au-btn-icon au-btn--green au-btn--small" (click)= "openDialogInsert()">
+        <button class="au-btn au-btn-icon au-btn--green au-btn--small" (click)="openDialogInsert()">
           <i class="zmdi zmdi-plus"></i>add item</button>
       </div>
     </div>
     <div class="table-responsive table-responsive-data2">
-      <table  class="table table-data2" >
+      <table class="table table-data2">
         <thead>
           <tr>
-          
+
             <th>ID</th>
             <th>Name Role</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr class="tr-shadow" *ngFor= "let item of listRoles">
+          <tr class="tr-shadow" *ngFor="let item of listRoles">
             <td>{{item.ID}}</td>
             <td>{{item.RoleName}}</td>
-          
+
             <td>
               <div class="table-data-feature">
-                <button class="item" data-toggle="tooltip" (click)= "openDialogUpdate(item)" data-placement="top" title="Edit">
+                <button class="item" data-toggle="tooltip" (click)="openDialogUpdate(item)" data-placement="top" title="Edit">
                   <i class="zmdi zmdi-edit"></i>
                 </button>
-                <button class="item" 
-                data-toggle="tooltip" 
-                data-placement="top" 
-                title="Delete" 
-                (click)= "deleteRoleClick(item.ID)">
+                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" (click)="deleteRoleClick(item.ID)">
                   <i class="zmdi zmdi-delete"></i>
                 </button>
                 <button class="item" data-toggle="tooltip" data-placement="top" title="Detail">

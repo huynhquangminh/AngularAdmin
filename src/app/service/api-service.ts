@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 // npm install rxjs@6 rxjs-compat@6 --save
 @Injectable()
 export class ApiService {
-    constructor(private _http: Http) { }
+    constructor(private _http: Http, private http: HttpClient) { }
     private URL_IMG = 'api/Image/UploadImage';
     CallAllService(_apiUrl: string) {
         return this._http.post(_apiUrl, null, null).map((data: Response) => data.json());
@@ -15,13 +15,12 @@ export class ApiService {
     CallByResquestService(_apiUrl: string, request: any) {
         return this._http.post(_apiUrl, request, null).map((data: Response) => data.json());
     }
-    postFile(fileToUpload: File): Observable<boolean> {
+    postFile(fileToUpload: File) {
         const formData: FormData = new FormData();
-        formData.append('fileKey', fileToUpload, fileToUpload.name);
-        const headers = new Headers({ 'Content-Type': 'multipart/form-data' });
-        const options = new RequestOptions({ headers: headers, method: 'post' });
-        return this._http.post(this.URL_IMG , formData, options)
-          .map(
-            (response => response.json()));
+        console.log('fileToUpload', fileToUpload);
+        formData.append('file', fileToUpload, fileToUpload.name);
+        const headers = new Headers();
+        headers.append('Content-Type', 'multipart/form-data');
+        return this.http.post(this.URL_IMG , formData);
       }
 }
