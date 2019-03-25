@@ -28,6 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InsertProductDialogComponent } from './admin-home/product/insert-product-dialog/insert-product-dialog.component';
 import { UpdateProductDialogComponent } from './admin-home/product/update-product-dialog/update-product-dialog.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     UpdateNewDialogComponent,
     InsertNewDialogComponent,
     InsertProductDialogComponent,
-    UpdateProductDialogComponent
+    UpdateProductDialogComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
