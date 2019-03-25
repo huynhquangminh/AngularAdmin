@@ -25,6 +25,9 @@ import {MatDialogModule} from '@angular/material';
 import { UpdateNewDialogComponent } from './admin-home/new/update-new-dialog/update-new-dialog.component';
 import { InsertNewDialogComponent } from './admin-home/new/insert-new-dialog/insert-new-dialog.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { InsertProductDialogComponent } from './admin-home/product/insert-product-dialog/insert-product-dialog.component';
+import { UpdateProductDialogComponent } from './admin-home/product/update-product-dialog/update-product-dialog.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     UpdateCustomerDialogComponent,
     MessageComfrimComponent,
     UpdateNewDialogComponent,
-    InsertNewDialogComponent
+    InsertNewDialogComponent,
+    InsertProductDialogComponent,
+    UpdateProductDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -56,7 +61,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AngularFileUploaderModule,
     NgbModule.forRoot(),
     SelectDropDownModule,
-    MatSelectModule
+    MatSelectModule,
+    PaginationModule.forRoot()
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
@@ -69,7 +75,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     UpdateCustomerDialogComponent,
     MessageComfrimComponent,
     UpdateNewDialogComponent,
-    InsertNewDialogComponent
+    InsertNewDialogComponent,
+    InsertProductDialogComponent,
+    UpdateProductDialogComponent
   ]
 })
 export class AppModule { }

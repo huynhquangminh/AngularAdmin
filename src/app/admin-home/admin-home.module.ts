@@ -7,9 +7,8 @@ import { RoleComponent } from './role/role.component';
 import { CustomerComponent } from './customer/customer.component';
 import { NewComponent } from './new/new.component';
 import { ProductComponent } from './product/product.component';
-import { InsertProductDialogComponent } from './product/insert-product-dialog/insert-product-dialog.component';
-import { UpdateProductDialogComponent } from './product/update-product-dialog/update-product-dialog.component';
-
+import { PaginationModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +16,8 @@ import { UpdateProductDialogComponent } from './product/update-product-dialog/up
   imports: [
     CommonModule,
     AdminHomeRoutingModule,
+    PaginationModule.forRoot(),
+    FormsModule,
   ],
   declarations: [
     IndexComponent,
@@ -25,8 +26,6 @@ import { UpdateProductDialogComponent } from './product/update-product-dialog/up
     CustomerComponent,
     NewComponent,
     ProductComponent,
-    InsertProductDialogComponent,
-    UpdateProductDialogComponent,
   ],
   providers: [],
 })

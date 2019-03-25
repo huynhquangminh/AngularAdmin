@@ -17,6 +17,7 @@ export class NewComponent implements OnInit {
   listNews: any [];
   dialogRef: any;
   deleteNewsRequest = new DeleteNewsRequest ();
+  urlImage = 'http://localhost:3100/image/';
   constructor(
     public dialog: MatDialog,
     public _apiservice: ApiService,

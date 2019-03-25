@@ -1,3 +1,87 @@
-<p>
-  product works!
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <!-- DATA TABLE -->
+    <h3 class="title-5 m-b-35">data table</h3>
+    <div class="table-data__tool">
+      <div class="table-data__tool-left">
+        <div class="rs-select2--light rs-select2--md">
+          <select class="js-select2" name="property">
+            <option selected="selected">All Properties</option>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+          </select>
+          <div class="dropDownSelect2"></div>
+        </div>
+        <button class="au-btn-filter">
+          <i class="zmdi zmdi-filter-list"></i>filters</button>
+      </div>
+      <div class="table-data__tool-right">
+        <button class="au-btn au-btn-icon au-btn--green au-btn--small" (click)= "openDialogInsert()">
+          <i class="zmdi zmdi-plus"></i>add item</button>
+      </div>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+      <table class="table table-data2">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name Product</th>
+            <th>Price </th>
+            <th>ImageProduct</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr-shadow" *ngFor= "let item of listProducts ">
+            <td>{{item.ID}}</td>
+            <td>{{item.NameProduct}}</td>
+            <td>{{item.Price}}</td>
+            <td><img src="{{urlImage}}{{item.ImageProduct}}" alt="{{item.NameProduct}}" width="100" height="100"></td>
+            <td>{{item.Amount}}</td>
+            <td>{{item.Date}}</td>
+            <td>
+              <div class="table-data-feature">
+                <button class="item" data-toggle="tooltip" (click)= "openDialogUpdate(item)" data-placement="top" title="Edit">
+                  <i class="zmdi zmdi-edit"></i>
+                </button>
+                <button class="item" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="Delete" 
+                (click)= "deleteRoleClick(item.ID)">
+                  <i class="zmdi zmdi-delete"></i>
+                </button>
+                <button class="item" data-toggle="tooltip" data-placement="top" title="Detail">
+                  <i class="zmdi zmdi-more"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr class="spacer"></tr>
+         
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <nav class="pull-right">
+            <pagination 
+              [boundaryLinks]="true"
+              [totalItems]="bigTotalItems" 
+              [(ngModel)]="bigCurrentPage" 
+              [maxSize]="maxSize" 
+              [itemsPerPage]="12" 
+              previousText="&lsaquo;" 
+              nextText="&rsaquo;"
+              firstText="&laquo;" 
+              lastText="&raquo;"
+              (pageChanged)="pageChanged($event)">
+          </pagination>
+          </nav>
+      </div>
+  </div> 
+    <!-- END DATA TABLE -->
+  </div>
+</div>
