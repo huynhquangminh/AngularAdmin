@@ -17,7 +17,6 @@ export class ApiService {
     }
     postFile(fileToUpload: File) {
         const formData: FormData = new FormData();
-        console.log('fileToUpload', fileToUpload);
         formData.append('file', fileToUpload, fileToUpload.name);
         const headers = new Headers();
         headers.append('Content-Type', 'multipart/form-data');

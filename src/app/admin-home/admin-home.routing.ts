@@ -14,7 +14,7 @@ const homeRoutes: Routes = [
     { path: 'role', component: RoleComponent },
     { path: 'customer', component: CustomerComponent },
     { path: 'news', component: NewComponent },
-    { path: 'product/:page', component: ProductComponent },
+    { path: 'product', component: ProductComponent },
 
 ];
 

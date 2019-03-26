@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
   deleteProductRequest = new DeleteProductRequest();
   urlImage = 'http://localhost:3100/image/';
   listproductRequest: GetProductAllRequest = {
-    StartPage: 0,
+    StartPage: 1,
     Type: 0
   };
   constructor(
@@ -34,9 +34,6 @@ export class ProductComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.listproductRequest.StartPage = +params['page'];
-    });
     this.callService();
   }
 
@@ -62,8 +59,9 @@ export class ProductComponent implements OnInit {
   openDialogInsert() {
     const dialogRef = this.dialog.open(InsertProductDialogComponent, {
       disableClose: true,
-      height: '530px',
-      width: '550px'
+      height: '800px',
+      width: '700px',
+      data: this.listCategorys
     });
     this.reloadPage(dialogRef);
   }

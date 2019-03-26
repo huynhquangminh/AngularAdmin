@@ -63,21 +63,6 @@ export class InsertNewDialogComponent implements OnInit {
       this.imgsrc = '';
     }
     this.onLostFocus('NameCategory');
-
-     const formData: FormData = new FormData();
-      formData.append('uploadFile', this.file, this.file.name);
-        this._apiService.postFile(this.file).subscribe(data => {
-          console.log('done');
-        });
-
-    // if ( this.fileList.length > 0) {
-    //   const file1: File = this.fileList[0];
-    //   const formData: FormData = new FormData();
-    //   formData.append('uploadFile', file1, file1.name);
-    //   this._apiService.postFile(file1).subscribe(data => {
-    //     console.log('done');
-    //   });
-    // }
   }
 
   CheckValidate(tooltip: NgbTooltip, namecontrol: string) {
@@ -114,6 +99,9 @@ export class InsertNewDialogComponent implements OnInit {
       DescriptionNews: this._addForm.get('DescriptionNews').value,
     };
 
+    this._apiService.postFile(this.file).subscribe(data => {
+    });
+
     this._apiService.CallByResquestService(INSERTNEWS_URL, this.requestData).subscribe(data => {
       if (data === false) {
         alert('Your Request Is Unsuccessful');
@@ -126,10 +114,5 @@ export class InsertNewDialogComponent implements OnInit {
   onCancelClick() {
     this.dialogref.close();
   }
-
-
-
-
-
 
 }
