@@ -47,11 +47,17 @@ export class NewComponent implements OnInit {
 
   openDialogUpdate($event) {
     const dialogRef = this.dialog.open(UpdateNewDialogComponent, {
-      height: '260px',
+      height: '560px',
       width: '600px',
       data: {
         ID: $event.ID,
-        RoleName: $event.RoleName
+        NameNews: $event.NameNews,
+        IDCreater: $event.IDCreater,
+        Date: $event.Date,
+        ImageNews: $event.ImageNews,
+        ImageNewDetail: '',
+        ViewMax: $event.ViewMax ,
+        DescriptionNews: $event.DescriptionNews
       }
     });
 

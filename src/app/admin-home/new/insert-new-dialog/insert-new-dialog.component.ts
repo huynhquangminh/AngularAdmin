@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from '../../../service/api-service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Add_NewsRequest } from 'src/app/model/insertNewRequest';
+import { AddNewsRequest } from 'src/app/model/insertNewRequest';
 import { INSERTNEWS_URL } from '../config';
 import { formatDate } from '@angular/common';
 
@@ -17,7 +17,7 @@ export class InsertNewDialogComponent implements OnInit {
   public _addForm: FormGroup;
   tooltip: NgbTooltip;
   nameFile: string;
-  requestData = new Add_NewsRequest();
+  requestData = new AddNewsRequest();
   imgsrc: any = '';
   fileList: FileList;
   file: File;

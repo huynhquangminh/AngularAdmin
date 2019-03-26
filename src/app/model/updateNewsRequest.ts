@@ -1,4 +1,5 @@
-export class AddNewsRequest {
+export class EditNewsRequest {
+    public ID: number;
     public NameNews: string;
     public IDCreater: number;
     public Date: Date;

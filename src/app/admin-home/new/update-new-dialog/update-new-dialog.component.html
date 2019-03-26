@@ -1,3 +1,83 @@
-<p>
-  update-new-dialog works!
-</p>
+<mat-card-header>
+  <mat-toolbar class="toolbar">
+    <mat-card-title>Update News </mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon (click)="onCancelClick()">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header>
+<mat-dialog-content style="max-height:none">
+  <div class="container">
+    <form class="md-form" [formGroup]="_addForm" (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="row">
+
+          <div class="col-md-6">
+            <label><b>Name News</b></label>
+            <input type="text" formControlName="NameNews" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('NameNews')">
+          </div>
+
+          <div class="col-md-6" style="margin-top: 20px">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label>
+                        <b>User Create</b>
+                    </label>
+                </div>
+                <mat-form-field>
+                    <mat-select [(value)]="customerSelected">
+                        <mat-option *ngFor="let item of listCustomer" value="{{item.ID}}">{{item.UserName}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label><b>Date</b></label>
+            <input type="date" formControlName="Date" class="form-control" #tip3="ngbTooltip" triggers="manual" 
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('Date')">
+          </div>
+
+          <div class="col-md-6">
+            <label><b>Image News</b></label>
+            <input type="file" accept="image/*" (change)= "onSelectedFile($event)"> <br>
+          </div>
+
+          <div class="col-md-6">
+            <label><b>View Max</b></label>
+            <input type="number" formControlName="ViewMax" class="form-control" #tip4="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('ViewMax')">
+          </div>
+
+          <div class="col-md-6">
+            <img [src]="imgsrc" height="100" width="200">
+          </div>
+
+          <div class="col-md-6"></div>
+          
+          <div class="col-md-12">
+            <label><b>Description News</b></label>
+            <a style="margin-left: 40px" target="_blank" href="https://html-online.com/editor/"> <h5><i>Move to Editor Onlie</i></h5></a>
+            <textarea 
+              rows="5" 
+              cols="200" 
+              placeholder="you copy source in editor online ... vd : <p>hello work</p> "
+              formControlName="DescriptionNews" 
+              class="form-control" 
+              #tip5="ngbTooltip" 
+              triggers="manual"
+              [autoClose]="false" 
+              [placement]="'bottom'" 
+              [ngbTooltip]="'Ii is not Emtry!'" 
+              (focusout)="onLostFocus('DescriptionNews')">   
+            </textarea>
+            
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button class="btn btn-primary" [disabled]="isDisable" (click)="ClickSave()"> Save </button>
+</mat-dialog-actions>
