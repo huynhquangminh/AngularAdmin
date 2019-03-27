@@ -1,3 +1,103 @@
-<p>
-  update-product-dialog works!
-</p>
+<mat-card-header>
+  <mat-toolbar class="toolbar">
+    <mat-card-title>Add News </mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon (click)="onCancelClick()">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header>
+<mat-dialog-content style="max-height:none">
+  <div class="container">
+    <form class="md-form" [formGroup]="_addForm" (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="row">
+
+          <div class="col-md-4">
+            <label><b>Name Product</b><i>(*)</i></label>
+            <input type="text" formControlName="NameProduct" class="form-control" #tip1="ngbTooltip" triggers="manual"
+              [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('NameProduct')">
+          </div>
+
+          <div class="col-md-4">
+              <label><b>Price</b><i>(*)</i></label>
+              <input type="number" formControlName="Price" class="form-control" #tip2="ngbTooltip" min= "0" triggers="manual"
+                [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('Price')">
+            </div>
+
+          <div class="col-md-4">
+              <label><b>Amount</b><i>(*)</i></label>
+              <input type="number" formControlName="Amount" class="form-control" #tip3="ngbTooltip" min= "0" triggers="manual"
+                [autoClose]="false" [placement]="'bottom'" [ngbTooltip]="'Ii is not Emtry!'" (focusout)="onLostFocus('Amount')">
+          </div>
+          
+          <div class="col-md-4">
+              <label><b>Price Sale</b></label>
+              <input type="number" formControlName="PriceSale" class="form-control"  min= "0">
+          </div>
+          <div class="col-md-4" >
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                      <label> <b>Type Category</b><i>(*)</i></label>
+                  </div>
+                  <mat-form-field>
+                      <mat-select [(value)]="selectedProduct">
+                        <mat-option *ngFor="let item of datadialog" value="{{item.ID}}">{{item.NameCategory}}</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <label><b>Sell Max</b></label>
+              <input type="number" formControlName="SellMax" class="form-control"   min= "0">
+            </div>
+
+          <div class="col-md-8">
+            <label><b>Image Product</b><i>(*)</i></label>
+            <input type="file" accept="image/*" (change)= "onSelectedFile($event)"> <br>
+          </div>
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <img [src]="imgsrc" height="100" width="200">
+          </div>
+          <div class="col-md-12">
+            <label><b>BriefDes</b><i>(*)</i></label>
+            <textarea 
+              rows="2" 
+              cols="200" 
+              placeholder=" "
+              formControlName="BriefDes" 
+              class="form-control" 
+              #tip5="ngbTooltip" 
+              triggers="manual"
+              [autoClose]="false" 
+              [placement]="'bottom'" 
+              [ngbTooltip]="'Ii is not Emtry!'" 
+              (focusout)="onLostFocus('BriefDes')">   
+            </textarea>
+            </div>
+
+          <div class="col-md-12">
+            <label><b>Description Product</b><i>(*)</i></label>
+            <a style="margin-left: 40px" target="_blank" href="https://html-online.com/editor/"> <h5><i>Move to Editor Onlie</i></h5></a>
+            <textarea 
+              rows="5" 
+              cols="200" 
+              placeholder="you copy source in editor online ... vd : <p>hello work</p> "
+              formControlName="DescriptionProduct" 
+              class="form-control" 
+              #tip6="ngbTooltip" 
+              triggers="manual"
+              [autoClose]="false" 
+              [placement]="'bottom'" 
+              [ngbTooltip]="'Ii is not Emtry!'" 
+              (focusout)="onLostFocus('DescriptionProduct')">   
+            </textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button class="btn btn-primary" [disabled]="isDisable" (click)="ClickSave()"> Save </button>
+</mat-dialog-actions>

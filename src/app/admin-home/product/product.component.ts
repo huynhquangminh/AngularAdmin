@@ -68,12 +68,21 @@ export class ProductComponent implements OnInit {
 
   openDialogUpdate($event) {
     const dialogRef = this.dialog.open(UpdateProductDialogComponent, {
-      height: '260px',
-      width: '600px',
-      // data: {
-      //   ID: $event.ID,
-      //   RoleName: $event.RoleName
-      // }
+      height: '800px',
+      width: '700px',
+      data: {
+        ID: $event.ID,
+        NameProduct: $event.NameProduct,
+        Price: $event.Price,
+        Amount: $event.Amount,
+        PriceSale: $event.PriceSale,
+        SellMax: $event.SellMax,
+        ImageProduct: $event.ImageProduct,
+        BriefDes: $event.BriefDes,
+        DescriptionProduct: $event.Description,
+        IDCategory: $event.IDCategory,
+        ListCategory: this.listCategorys
+      }
     });
 
     this.reloadPage(dialogRef);

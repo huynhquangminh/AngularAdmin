@@ -114,7 +114,6 @@ export class InsertProductDialogComponent implements OnInit {
       } else {
         this.dialogref.close();
       }
-
     });
   }
   onCancelClick() {
